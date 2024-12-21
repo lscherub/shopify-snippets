@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Header - Code Snippet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Snippet Header Section -->
+    <header class="bg-indigo-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Sticky Header</h1>
+            <p class="mt-2">A simple code to create a sticky header for your Shopify store.</p>
+        </div>
+    </header>
+
+    <!-- Code Block Section -->
+    <section class="container mx-auto mt-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="font-semibold text-xl">Code Snippet</h3>
+            <pre class="mt-4">
+                <code class="language-liquid">
+                    {% if template == 'index' %}
+  <style>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+{% endif %}
+                </code>
+            </pre>
+            <button onclick="copyCode()" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg">Copy Code</button>
+        </div>
+    </section>
+
+    <!-- Live Preview Section -->
+    <section class="container mx-auto mt-12">
+        <h3 class="text-xl font-semibold">Live Preview</h3>
+        <div id="preview" class="bg-white mt-4 p-6 rounded-lg shadow-md">
+            <!-- Live preview will be inserted here -->
+        </div>
+    </section>
+
+    <script>
+        function copyCode() {
+            const code = document.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Code copied to clipboard!");
+            });
+        }
+
+        // Live preview of the sticky header
+        document.getElementById('preview').innerHTML = `
+            <div style="position: sticky; top: 0; background-color: #fff; padding: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); z-index: 999;">
+                <h1>Sticky Header (Preview)</h1>
+            </div>
+            <div style="height: 2000px; padding: 20px;">
+                Scroll down to see the sticky header in action.
+            </div>
+        `;
+    </script>
+
+</body>
+</html>
