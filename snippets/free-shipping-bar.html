@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Shipping Bar - Code Snippet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Snippet Header Section -->
+    <header class="bg-indigo-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">Free Shipping Bar</h1>
+            <p class="mt-2">A bar that notifies customers when they qualify for free shipping.</p>
+        </div>
+    </header>
+
+    <!-- Code Block Section -->
+    <section class="container mx-auto mt-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="font-semibold text-xl">Code Snippet</h3>
+            <pre class="mt-4">
+                <code class="language-liquid">
+                    {% if cart.total_price < 10000 %}
+  <div style="background-color: #f0c14b; padding: 10px; text-align: center;">
+    <p>Spend ${{ 100 - cart.total_price | divided_by: 100 | round: 0 }} more to qualify for free shipping!</p>
+  </div>
+{% endif %}
+                </code>
+            </pre>
+            <button onclick="copyCode()" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg">Copy Code</button>
+        </div>
+    </section>
+
+    <!-- Live Preview Section -->
+    <section class="container mx-auto mt-12">
+        <h3 class="text-xl font-semibold">Live Preview</h3>
+        <div id="preview" class="bg-white mt-4 p-6 rounded-lg shadow-md">
+            <!-- Live preview will be inserted here -->
+        </div>
+    </section>
+
+    <script>
+        function copyCode() {
+            const code = document.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Code copied to clipboard!");
+            });
+        }
+
+        // Simulate the preview bar
+        document.getElementById('preview').innerHTML = `
+            <div style="background-color: #f0c14b; padding: 10px; text-align: center;">
+                <p>Spend $50 more to qualify for free shipping!</p>
+            </div>
+        `;
+    </script>
+
+</body>
+</html>
